@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="MailApp">
+  
+  <!-- Unique Identifier -->
+  <Id>7670eeb5-027c-47c2-bd43-ce0fba1b14e8</Id>
+  
+  <!-- Version -->
+  <Version>1.0.0.0</Version>
+  
+  <!-- Provider Information -->
+  <ProviderName>SIMO GmbH - Make Data Easy</ProviderName>
+  
+  <!-- Default Locale -->
+  <DefaultLocale>en-US</DefaultLocale>
+  
+  <!-- Display Name -->
+  <DisplayName DefaultValue="SIMO IT Support Ticket"/>
+  
+  <!-- Description -->
+  <Description DefaultValue="Submit IT support requests and track tickets. Select priority levels and provide detailed descriptions for efficient issue resolution."/>
+  
+  <!-- Icon URLs -->
+  <IconUrl DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/icon32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/icon80.png"/>
+  
+  <!-- Support URL -->
+  <SupportUrl DefaultValue="https://github.com/nikolai-SIMO/SIMO_IT-Ticket-System"/>
+  
+  <!-- App Domains -->
+  <AppDomains>
+    <AppDomain>https://nikolai-simo.github.io</AppDomain>
+    <AppDomain>https://forms.office.com</AppDomain>
+    <AppDomain>https://forms.microsoft.com</AppDomain>
+  </AppDomains>
+  
+  <!-- Hosts Configuration -->
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  
+  <!-- Requirements -->
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  
+  <!-- Form Settings - Using ItemRead for Read Mode -->
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  
+  <!-- Permissions -->
+  <Permissions>ReadWriteItem</Permissions>
+  
+  <!-- Activation Rule - Both Read and Compose Mode -->
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+  
+  <!-- Version Overrides for Modern Outlook UI -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    
+    <!-- Hosts Configuration -->
+    <Hosts>
+      <Host xsi:type="MailHost">
+        
+        <!-- Desktop Form Factor -->
+        <DesktopFormFactor>
+          <!-- Function File -->
+          <FunctionFile resid="Commands.Url"/>
+          
+          <!-- Extension Point for Message Read -->
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="SimoITSupportGroup">
+                <Label resid="GroupLabel"/>
+                
+                <!-- Task Pane Button -->
+                <Control xsi:type="Button" id="SimoITSupportButton">
+                  <Label resid="TaskpaneButton.Label"/>
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Title"/>
+                    <Description resid="TaskpaneButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16"/>
+                    <bt:Image size="32" resid="Icon.32"/>
+                    <bt:Image size="80" resid="Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+          
+          <!-- Extension Point for Message Compose -->
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="SimoITSupportComposeGroup">
+                <Label resid="GroupLabel"/>
+                
+                <!-- Task Pane Button -->
+                <Control xsi:type="Button" id="SimoITSupportComposeButton">
+                  <Label resid="TaskpaneButton.Label"/>
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Title"/>
+                    <Description resid="TaskpaneButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16"/>
+                    <bt:Image size="32" resid="Icon.32"/>
+                    <bt:Image size="80" resid="Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+          
+        </DesktopFormFactor>
+        
+      </Host>
+    </Hosts>
+    
+    <!-- Resources Section - Strict ordering for schema validation -->
+    <Resources>
+      <!-- Images first -->
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/icon16.png"/>
+        <bt:Image id="Icon.32" DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/icon32.png"/>
+        <bt:Image id="Icon.80" DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/icon80.png"/>
+      </bt:Images>
+      
+      <!-- URLs second -->
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://nikolai-simo.github.io/SIMO_IT-Ticket-System/"/>
+      </bt:Urls>
+      
+      <!-- ShortStrings third -->
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="SIMO IT Support"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Submit IT Ticket"/>
+        <bt:String id="TaskpaneButton.Title" DefaultValue="IT Support Ticket"/>
+      </bt:ShortStrings>
+      
+      <!-- LongStrings fourth -->
+      <bt:LongStrings>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Submit IT support requests with priority levels and detailed descriptions for efficient issue resolution."/>
+      </bt:LongStrings>
+    </Resources>
+    
+  </VersionOverrides>
+  
+</OfficeApp>
