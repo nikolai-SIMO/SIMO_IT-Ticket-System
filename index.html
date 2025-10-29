@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMO IT Support Ticket</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .badge {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="icon">🎫</div>
+            <h1>SIMO IT Support Ticket</h1>
+            <p>Click the button below to open the IT support ticket submission form. You can describe your issue, set priority, and we'll get back to you soon.</p>
+            
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=aWc9G88WnEO78pAi4oGmGoalILOG8DhOpLKcY7DksvVUNUsJWThNRDNUUlhPT0ZDWEUwRlR8TU1ZSy4u" 
+               target="_blank" 
+               class="button"
+               id="openForm">
+                📝 Open Ticket Form
+            </a>
+            
+            <div class="info">
+                <div class="info-item">
+                    <span>⚡</span>
+                    <span>Quick response times</span>
+                </div>
+                <div class="info-item">
+                    <span>🔒</span>
+                    <span>Secure & confidential</span>
+                </div>
+                <div class="info-item">
+                    <span>📊</span>
+                    <span>Track your ticket status</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">SIMO IT Support</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-open form when loaded in Outlook add-in context
+        if (window.Office) {
+            // Running in Office add-in
+            document.getElementById('openForm').addEventListener('click', function(e) {
+                // In Outlook, open in new window
+                Office.context.ui.displayDialogAsync(
+                    'https://forms.office.com/Pages/ResponsePage.aspx?id=aWc9G88WnEO78pAi4oGmGoalILOG8DhOpLKcY7DksvVUNUsJWThNRDNUUlhPT0ZDWEUwRlR8TU1ZSy4u',
+                    {height: 80, width: 60}
+                );
+            });
+        }
+    </script>
+    
+    <!-- Office.js for Outlook add-in functionality -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</body>
+</html>
